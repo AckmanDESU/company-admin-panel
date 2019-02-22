@@ -1,0 +1,36 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "bulma";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.my-5 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.button-back {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+
+#cover {
+    transition: .25s;
+    opacity: 0;
+    background-color: rgba(0,0,0,.3);
+    height: 128px;
+    width: 128px;
+    position: absolute;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cover:hover {
+    opacity: 1 !important;
+}
