@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ $company->name }}</td>
                 <td>{{ $company->email }}</td>
-                <td>{{ $company->website }}</td>
+                <td><a href="{{ $company->website }}">{{ $company->website }}</a></td>
                 <td>
                     <a
                         class="button is-link"

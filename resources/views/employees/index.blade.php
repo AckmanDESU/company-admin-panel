@@ -19,7 +19,8 @@
     <table class="table is-fullwidth is-hoverable">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>First Name</th>
+          <th>Last Name</th>
           <th>Email</th>
           <th>Phone</th>
           <th></th>
@@ -29,7 +30,9 @@
       <tbody>
         @foreach($employees as $employee)
             <tr>
-                <td>{{ $employee->last_name }}, {{ $employee->first_name }}</td>
+                {{-- <td>{{ $employee->last_name }}, {{ $employee->first_name }}</td> --}}
+                <td>{{ $employee->first_name }}</td>
+                <td>{{ $employee->last_name }}</td>
                 <td>{{ $employee->email }}</td>
                 <td>{{ $employee->phone }}</td>
                 <td>
