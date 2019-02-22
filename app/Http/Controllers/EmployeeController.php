@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeStoreRequest;
+use Freshbitsweb\Laratables\Laratables;
 
 class EmployeeController extends Controller
 {
@@ -16,7 +17,12 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::paginate(10);
-        return view('employees.index')->with(compact('employees'));
+        return view('employees.indexdt')->with(compact('employees'));
+    }
+
+    public function indexdt()
+    {
+        return Laratables::recordsOf(Employee::class);
     }
 
     /**
