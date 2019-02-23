@@ -27,40 +27,32 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        @foreach($employees as $employee)
-            <tr>
-                {{-- <td>{{ $employee->last_name }}, {{ $employee->first_name }}</td> --}}
-                <td>{{ $employee->first_name }}</td>
-                <td>{{ $employee->last_name }}</td>
-                <td>{{ $employee->email }}</td>
-                <td>{{ $employee->phone }}</td>
-                <td>
-                    <a
-                        class="button is-primary"
-                        href="{{ url("employees/$employee->id/edit") }}"
-                        >
-                        <span class="icon is-medium has-text-light" title="Edit">
-                            <i class="fas fa-edit"></i>
-                        </span>
-                    </a>
-                </td>
-                <td>
-                    <form action="{{ url("employees/$employee->id") }}" method="post" title="Delete">
-                        @csrf
-                        @method('delete')
-                        <button class="button is-danger">
-                            <span class="icon is-medium has-text-light">
-                                <i class="fas fa-trash-alt"></i>
-                            </span>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-      </tbody>
     </table>
 
-    {{ $employees->links() }}
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    $('table').DataTable({
+        serverSide: true,
+        processing: true,
+        responsive: true,
+        @if (isset($company))
+            ajax: "{{ route('employees_from_company_dt', $company->id) }}",
+        @else
+            ajax: "{{ route('employees_all_dt') }}",
+        @endif
+        columns: [
+            { name: 'first_name' },
+            { name: 'last_name' },
+            { name: 'email' },
+            { name: 'phone' },
+            { name: "edit", orderable: false, searchable: false },
+            { name: "delete", orderable: false, searchable: false },
+        ],
+    });
+});
+</script>
+@endpush

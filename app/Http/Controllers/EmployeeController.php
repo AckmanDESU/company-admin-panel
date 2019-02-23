@@ -16,13 +16,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::paginate(10);
-        return view('employees.indexdt')->with(compact('employees'));
-    }
-
-    public function indexdt()
-    {
-        return Laratables::recordsOf(Employee::class);
+        $employees = Employee::all();
+        return view('employees.index')->with(compact('employees'));
     }
 
     /**

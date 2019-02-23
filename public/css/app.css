@@ -25621,3 +25621,17 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
   opacity: 1 !important;
 }
 
+.dataTables_processing {
+  position: absolute;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+

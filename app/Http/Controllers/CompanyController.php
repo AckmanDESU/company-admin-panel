@@ -18,14 +18,13 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::paginate(10);
+        $companies = Company::first();
         return view('companies.index')->with(compact('companies'));
     }
 
     public function employeeList(Company $company)
     {
-        $employees = $company->employees()->paginate(10);
-        return view('employees.index')->with(compact('employees', 'company'));
+        return view('employees.indexdt')->with(compact('company'));
     }
 
     /**
@@ -112,6 +111,6 @@ class CompanyController extends Controller
         Storage::delete($company->logo);
         $company->delete();
 
-        return back();
+        return redirect('/companies');
     }
 }

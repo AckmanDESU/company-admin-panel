@@ -28,4 +28,3 @@ Route::resource('employees', 'EmployeeController')->middleware('auth');
 
 Route::get('companies/{company}/employees', 'CompanyController@employeeList');
 
-Route::get('/api/employees', 'EmployeeController@indexdt')->name('employees_dt');

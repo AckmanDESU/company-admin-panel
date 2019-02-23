@@ -35,3 +35,16 @@
 #cover:hover {
     opacity: 1 !important;
 }
+
+.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid rgba($color: #000000, $alpha: .5);
+    border-bottom: 1px solid rgba($color: #000000, $alpha: .5);
+    transform: translateY(-50%);
+}

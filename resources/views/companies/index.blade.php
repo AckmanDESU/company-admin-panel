@@ -17,48 +17,27 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        @foreach($companies as $company)
-            <tr>
-                <td>{{ $company->name }}</td>
-                <td>{{ $company->email }}</td>
-                <td><a href="{{ $company->website }}">{{ $company->website }}</a></td>
-                <td>
-                    <a
-                        class="button is-link"
-                        href="{{ url("companies/$company->id/employees") }}"
-                        >
-                        <span class="icon is-medium has-text-light" title="View Employees">
-                            <i class="fas fa-user"></i>
-                        </span>
-                    </a>
-                </td>
-                <td>
-                    <a
-                        class="button is-primary"
-                        href="{{ url("companies/$company->id/edit") }}"
-                        >
-                        <span class="icon is-medium has-text-light" title="Edit">
-                            <i class="fas fa-edit"></i>
-                        </span>
-                    </a>
-                </td>
-                <td>
-                    <form action="{{ url("companies/$company->id") }}" method="post" title="Delete">
-                        @csrf
-                        @method('delete')
-                        <button class="button is-danger">
-                            <span class="icon is-medium has-text-light">
-                                <i class="fas fa-trash-alt"></i>
-                            </span>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-      </tbody>
     </table>
-
-    {{ $companies->links() }}
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    $('table').DataTable({
+        serverSide: true,
+        processing: true,
+        responsive: true,
+        ajax: "{{ route('companies_all_dt') }}",
+        columns: [
+            { name: 'name' },
+            { name: 'email' },
+            { name: 'website', render: (url) => '<a href="' + url + '">' + url + '</a>' },
+            { name: "listEmployees", orderable: false, searchable: false },
+            { name: "edit", orderable: false, searchable: false },
+            { name: "delete", orderable: false, searchable: false },
+        ],
+    });
+});
+</script>
+@endpush
