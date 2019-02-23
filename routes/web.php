@@ -28,3 +28,6 @@ Route::resource('employees', 'EmployeeController')->middleware('auth');
 
 Route::get('companies/{company}/employees', 'CompanyController@employeeList');
 
+Route::get('setlocale/{locale}', 'ChangeLocale')->middleware('web');
+
+

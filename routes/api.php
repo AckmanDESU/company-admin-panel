@@ -23,3 +23,6 @@ Route::get('/employees', 'DataTableController@getAllEmployees')
     ->name('employees_all_dt');
 Route::get('/companies/{company}/employees', 'DataTableController@getCompanyEmployees')
     ->name('employees_from_company_dt');
+
+Route::get('/datatables/locale/{locale?}', 'DataTableController@getLocale')
+    ->name('datatables_lang');

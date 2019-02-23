@@ -1,12 +1,12 @@
 @component('mail::message')
-# Company created
+# @lang('Company created')
 
-Your company has been created!
+@lang('Your company has been created!')
 
 @component('mail::button', ['url' => $url])
-View company
+    @lang('View company)
 @endcomponent
 
-Thanks,<br>
+@lang('Thanks),<br>
 {{ config('app.name') }}
 @endcomponent

@@ -1,4 +1,4 @@
-<form action="{{ url("companies/$company->id") }}" method="post" title="Delete">
+<form action="{{ url("companies/$company->id") }}" method="post" title="@lang('Delete')">
     {{ csrf_field() }}
     @method('delete')
 

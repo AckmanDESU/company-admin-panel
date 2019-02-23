@@ -7,22 +7,22 @@
                 <nav class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Dashboard
+                            @lang('Dashboard')
                         </p>
                     </header>
 
                     <div class="card-content">
-                        You are logged in!
+                        @lang('You are logged in!')
 
                         <ul>
                             <li>
                                 <a class="" href="{{ url('companies') }}">
-                                    Companies
+                                    @lang('Companies')
                                 </a>
                             </li>
                             <li>
                                 <a class="" href="{{ url('employees') }}">
-                                    Employees
+                                    @lang('Employees')
                                 </a>
                             </li>
                         </ul>

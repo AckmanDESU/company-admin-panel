@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Freshbitsweb\Laratables\Laratables;
-use App\Company;
-use App\Employee;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
-class DataTableController extends Controller
+class GetDataTablesLanguage extends Controller
 {
     private $langs = [
         'es' => [
@@ -38,36 +35,21 @@ class DataTableController extends Controller
         ]
     ];
 
-    public function boot()
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(Request $request)
     {
-        parent::boot();
+        $locale = $request->session()->get('locale');
 
-        Route::model('company', Company::class);
-    }
+        dump('locale: ' .$locale);
 
-    public function getLocale($locale = 'none')
-    {
-        if (empty($this->langs[$locale]))
-            return [];
-
-        return $this->langs[$locale];
-    }
-
-    public function getAllCompanies()
-    {
-        return Laratables::recordsOf(Company::class);
-    }
-
-    public function getAllEmployees()
-    {
-        return Laratables::recordsOf(Employee::class);
-    }
-
-    public function getCompanyEmployees(Company $company)
-    {
-        return Laratables::recordsOf(Employee::class, function(Employee $query) use($company)
-        {
-            return $query->where('company_id', $company->id);
-        });
+        if (!empty($this->langs[$locale]))
+            return $this->langs[$locale];
+        else
+            return;
     }
 }

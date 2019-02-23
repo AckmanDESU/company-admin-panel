@@ -8,22 +8,22 @@
             <span class="icon is-medium has-text-light">
                 <i class="fas fa-arrow-left"></i>
             </span>
-            <span>Back</span>
+            <span>@lang('Back')</span>
         </a>
 
         <figure class="image is-128x128" style="margin: auto">
             <div id="cover">
-                <button class="button is-dark" onclick="$('#logo').click()">Subir Logo</button>
+                <button class="button is-dark" onclick="$('#logo').click()">@lang('Change Logo')</button>
             </div>
             {{-- <img class="is-rounded" src="{{ asset('storage/'.$company->logo) }}" alt="Company logo"> --}}
-            <img class="is-rounded" src="{{ asset('storage/default-logo.gif') }}" alt="Company logo">
+            <img class="is-rounded" src="{{ asset('storage/default-logo.gif') }}" alt="@lang('Company logo')">
         </figure>
 
         @if ($errors->has('logo'))
             <p class="help is-danger">{{ $errors->first('logo') }}</p>
         @endif
         <h1 class="title">
-            Editing company
+            @lang('Editing company')
         </h1>
     </div>
   </div>
@@ -42,10 +42,10 @@
 
                 <div class="field is-grouped is-pulled-right">
                     <div class="control">
-                        <button class="button is-link">Submit</button>
+                        <button class="button is-link">@lang('Submit')</button>
                     </div>
                     <div class="control">
-                        <button type="reset" class="button is-secondary">Reset</button>
+                        <button type="reset" class="button is-secondary">@lang('Reset')</button>
                     </div>
                 </div>
                 {!! Form::close() !!}

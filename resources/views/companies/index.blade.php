@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ url('companies/create') }}" class="button is-link is-pulled-right">Add Company</a>
+    <a href="{{ url('companies/create') }}" class="button is-link is-pulled-right">@lang('Add Company')</a>
 
-    <h1 class="title">Companies</h1>
+    <h1 class="title">@lang('Companies')</h1>
 
     <table class="table is-fullwidth is-hoverable">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Website</th>
+          <th>@lang('Name')</th>
+          <th>@lang('Email')</th>
+          <th>@lang('Website')</th>
           <th></th>
           <th></th>
           <th></th>
@@ -25,6 +25,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     $('table').DataTable({
+        language: {
+            url: '{{ route("datatables_lang", Session::get("locale")) }}'
+        },
         serverSide: true,
         processing: true,
         responsive: true,

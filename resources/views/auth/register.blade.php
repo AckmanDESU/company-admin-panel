@@ -15,7 +15,7 @@
         <div class="column is-5">
             <div class="card">
                 <header class="card-header">
-                    <p class="card-header-title">Register</p>
+                    <p class="card-header-title">@lang('Register')</p>
                 </header>
 
                 <div class="card-content">
@@ -25,7 +25,7 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
-                                <label class="label">Name</label>
+                                <label class="label">@lang('Name')</label>
                             </div>
 
                             <div class="field-body">
@@ -46,7 +46,7 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
-                                <label class="label">E-mail Address</label>
+                                <label class="label">@lang('E-mail Address')</label>
                             </div>
 
                             <div class="field-body">
@@ -67,7 +67,7 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
-                                <label class="label">Password</label>
+                                <label class="label">@lang('Password')</label>
                             </div>
 
                             <div class="field-body">
@@ -87,7 +87,7 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label">
-                                <label class="label">Confirm Password</label>
+                                <label class="label">@lang('Confirm Password')</label>
                             </div>
 
                             <div class="field-body">
@@ -106,7 +106,7 @@
                             <div class="field-body">
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button type="submit" class="button is-primary">Register</button>
+                                        <button type="submit" class="button is-primary">@lang('Register')</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,9 @@
-<a class="button is-primary" href="/employees/{{ $employee->id }}">
-    <span class="icon is-medium has-text-light" title="Edit">
+<a
+    class="button is-primary"
+    {{-- href="{{ url("employees/$employee->id/edit") }}" --}}
+    href="employees/{{ $employee->id }}/edit"
+    >
+    <span class="icon is-medium has-text-light" title="@lang('Edit')">
         <i class="fas fa-edit"></i>
     </span>
 </a>

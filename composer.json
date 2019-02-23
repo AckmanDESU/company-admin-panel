@@ -12,11 +12,14 @@
         "fideloper/proxy": "^4.0",
         "freshbitsweb/laratables": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
+        "kkomelin/laravel-translatable-string-exporter": "^1.1",
         "laravel-frontend-presets/bulma": "^2.0",
         "laravel/framework": "5.7.*",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
-        "laravelcollective/html": "^5.4.0"
+        "laravelcollective/html": "^5.4.0",
+        "predis/predis": "^1.1",
+        "shipping-docker/vessel": "^4.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

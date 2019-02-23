@@ -34,9 +34,9 @@
 
                         <div class="navbar-end">
                             @guest
-                                <a class="navbar-item " href="{{ route('login') }}">Login</a>
+                                <a class="navbar-item " href="{{ route('login') }}">@lang('Login')</a>
                                 @if (Route::has('register'))
-                                    <a class="navbar-item " href="{{ route('register') }}">Register</a>
+                                    <a class="navbar-item " href="{{ route('register') }}">@lang('Register')</a>
                                 @endif
                             @else
                                 <div class="navbar-item has-dropdown is-hoverable">
@@ -44,14 +44,28 @@
 
                                     <div class="navbar-dropdown">
                                         <a class="navbar-item" href="{{ url('companies') }}">
-                                            Companies
+                                            @lang('Companies')
                                         </a>
                                         <a class="navbar-item" href="{{ url('employees') }}">
-                                            Employees
+                                            @lang('Employees')
                                         </a>
+
+                                        <hr class="dropdown-divider">
+                                        <hr class="dropdown-divider">
+
+                                        @foreach(Config::get('app.locales') as $locale)
+                                            @if(App::getLocale() != $locale)
+                                                <a class="navbar-item" href="{{ url('setlocale/' . $locale) }}">
+                                                    {{ strtoupper($locale) }}
+                                                </a>
+                                            @endif
+                                        @endforeach
+
+                                        <hr class="dropdown-divider">
+
                                         <a class="navbar-item" href="{{ route('logout') }}"
                                                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            Logout
+                                            @lang('Logout')
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

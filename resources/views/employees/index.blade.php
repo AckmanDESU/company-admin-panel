@@ -2,27 +2,27 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ url('employees/create') }}" class="button is-link is-pulled-right">Add Employee</a>
+    <a href="{{ url('employees/create') }}" class="button is-link is-pulled-right">@lang('Add Employee')</a>
 
     @if (isset($company))
         <a href="{{ url('./companies') }}" class="button is-pulled-right" style="margin-right: 15px">
             <span class="icon is-medium has-text-light">
                 <i class="fas fa-arrow-left"></i>
             </span>
-            <span>Back</span>
+            <span>@lang('Back')</span>
         </a>
-        <h1 class="title">Employees in {{ $company->name }}</h1>
+        <h1 class="title">@lang('Employees in :name', ['name' => $company->name])</h1>
     @else
-        <h1 class="title">Employees</h1>
+        <h1 class="title">@lang('Employees')</h1>
     @endif
 
     <table class="table is-fullwidth is-hoverable">
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Phone</th>
+          <th>@lang('First Name')</th>
+          <th>@lang('Last Name')</th>
+          <th>@lang('Email')</th>
+          <th>@lang('Phone')</th>
           <th></th>
           <th></th>
         </tr>
@@ -36,6 +36,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     $('table').DataTable({
+        language: {
+            url: '{{ route("datatables_lang", Session::get("locale", "")) }}'
+        },
         serverSide: true,
         processing: true,
         responsive: true,

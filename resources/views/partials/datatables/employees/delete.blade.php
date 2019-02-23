@@ -1,4 +1,4 @@
-<form action="/employees/{{ $employee->id }}" method="post" title="Delete">
+<form action="/employees/{{ $employee->id }}" method="post" title="@lang('Delete')">
     @csrf
     @method('DELETE')
 

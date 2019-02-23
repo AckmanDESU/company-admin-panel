@@ -24,7 +24,7 @@ class CompanyController extends Controller
 
     public function employeeList(Company $company)
     {
-        return view('employees.indexdt')->with(compact('company'));
+        return view('employees.index')->with(compact('company'));
     }
 
     /**
